@@ -10,9 +10,11 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.android.navigation.databinding.FragmentTitleBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 
 var selectedMode : Int = 0
 
@@ -39,10 +41,7 @@ class TitleFragment : Fragment() {
 
 
 
-        //Botón de Play que lleva al fragmento GameFragment.
-        binding.playButton.setOnClickListener { view : View ->
-            view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
-        }
+
 
         //Botón de Play que lleva al fragmento GameFragment.
         binding.rulesButton.setOnClickListener { view : View ->
@@ -55,8 +54,19 @@ class TitleFragment : Fragment() {
         }
 
         //Botón de About que lleva al fragmento AboutFragment.
-        binding.levelButton.setOnClickListener { view : View ->
+        binding.levelButton.setOnClickListener {
             onCreateDialog(savedInstanceState).show()
+        }
+
+        if (selectedMode != -1) {
+            //Botón de Play que lleva al fragmento GameFragment.
+            Log.d("1","El item seleccionado es: $selectedMode")
+            binding.playButton.setOnClickListener { view : View ->
+                view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
+            }
+        } else {
+            Log.d("1","El item seleccionado es: $selectedMode")
+            showSnackbar()
         }
 
         Log.d("1","El item seleccionado es: $selectedMode")
@@ -98,7 +108,7 @@ class TitleFragment : Fragment() {
     }
 
     val singleItems = arrayOf("Easy", "Medium", "Hard")
-    val checkedItem = 1
+    val checkedItem = 0
 
     private fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
@@ -107,15 +117,23 @@ class TitleFragment : Fragment() {
                 .setSingleChoiceItems(singleItems,checkedItem,
                     DialogInterface.OnClickListener { dialog, which ->
                         selectedMode = which
+
+                        Log.d("Aquiiiiii", "The selected option is $selectedMode")
                     })
                 .setPositiveButton("Accept", DialogInterface.OnClickListener { dialog, id ->
-
+                    Log.d("Aquiiiiii", "The selected option is $selectedMode")
                 })
                 .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, id ->
                     selectedMode = -1
+                    Log.d("Aquiiiiii", "The selected option is $selectedMode")
                 })
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
+    }
+
+    private fun showSnackbar() {
+
+
     }
 
 
