@@ -25,29 +25,48 @@
         android:layout_height="match_parent"
         android:background="@color/gameOverBackground">
 
+        <Button
+            android:id="@+id/exitButtonOver"
+            style="@style/ButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="216dp"
+            android:paddingStart="@dimen/button_padding"
+            android:paddingEnd="@dimen/button_padding"
+            android:text="@string/exit"
+            android:textColor="?colorAccent"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tryAgainImage"
+            app:layout_constraintVertical_bias="0.59" />
+
         <ImageView
             android:id="@+id/tryAgainImage"
-            android:layout_width="wrap_content"
-            android:layout_height="362dp"
+            android:layout_width="398dp"
+            android:layout_height="285dp"
             android:layout_marginStart="@dimen/horizontal_margin"
             android:layout_marginEnd="@dimen/horizontal_margin"
-            android:layout_marginBottom="8dp"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@+id/tryAgainButton"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.067"
             app:layout_constraintVertical_chainStyle="packed"
             app:srcCompat="@drawable/try_again" />
 
         <Button
             android:id="@+id/tryAgainButton"
+            style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/vertical_margin"
-            android:layout_marginTop="@dimen/vertical_margin"
-            android:layout_marginEnd="@dimen/vertical_margin"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="216dp"
             android:paddingStart="@dimen/button_padding"
             android:paddingEnd="@dimen/button_padding"
             android:text="@string/try_again"
@@ -55,18 +74,21 @@
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tryAgainImage" />
+            app:layout_constraintTop_toBottomOf="@+id/tryAgainImage"
+            app:layout_constraintVertical_bias="0.59" />
 
         <TextView
             android:id="@+id/tvAciertos"
+            style="@style/TextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tryAgainButton" />
+            app:layout_constraintTop_toBottomOf="@+id/tryAgainButton"
+            app:layout_constraintVertical_bias="0.356" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

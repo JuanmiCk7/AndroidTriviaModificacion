@@ -18,12 +18,14 @@ package com.example.android.navigation
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Process
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.android.navigation.databinding.FragmentGameWonBinding
+import kotlin.system.exitProcess
 
 
 class GameWonFragment : Fragment() {
@@ -32,15 +34,22 @@ class GameWonFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding: FragmentGameWonBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_game_won, container, false)
+        val args = GameWonFragmentArgs.fromBundle(requireArguments())
 
-        binding.nextMatchButton.setOnClickListener {
-            it.findNavController().navigate(R.id.action_gameWonFragment_to_gameFragment)
+
+        binding.nextMatchButton.setOnClickListener { view : View ->
+            view.findNavController().navigate(GameWonFragmentDirections.actionGameWonFragmentToGameFragment(args.selectedMode))
         }
 
-        val args = GameWonFragmentArgs.fromBundle(requireArguments())
+        binding.exitButtonWon.setOnClickListener { view : View ->
+            exitProcess(Process.myPid())
+        }
+
+
         val numAciertos = args.numAciertos
         val numPreguntas = args.numPreguntas
-        binding.tvPuntuacion.text = "Enhorabuena, has acertado: ${numAciertos} de ${numPreguntas} preguntas."
+        val score = args.score
+        binding.tvPuntuacion.text = resources.getString(R.string.mensaje_exito, numAciertos, numPreguntas, score)
 
         setHasOptionsMenu(true)
 
@@ -52,7 +61,8 @@ class GameWonFragment : Fragment() {
         val args = GameWonFragmentArgs.fromBundle(requireArguments())
         val shareIntent = Intent(Intent.ACTION_SEND)
         shareIntent.setType("text/plain")
-            .putExtra(Intent.EXTRA_TEXT, getString(R.string.share_success_text, args.numAciertos, args.numPreguntas))
+            .putExtra(Intent.EXTRA_TEXT, getString(R.string.share_success_text,
+                args.numAciertos, args.numPreguntas, args.score))
         return shareIntent
     }
 

@@ -26,19 +26,40 @@
         android:background="@color/youWinBackground">
 
         <Button
-            android:id="@+id/nextMatchButton"
+            android:id="@+id/exitButtonWon"
+            style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="144dp"
             android:paddingStart="@dimen/button_padding"
             android:paddingEnd="@dimen/button_padding"
-            android:text="Next Match"
-            android:textColor="@color/youWinDark"
+            android:text="@string/exit"
+            android:textColor="?colorAccent"
             android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/nextMatchButton" />
+
+        <Button
+            android:id="@+id/nextMatchButton"
+            style="@style/ButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="144dp"
+            android:paddingStart="@dimen/button_padding"
+            android:paddingEnd="@dimen/button_padding"
+            android:text="@string/nextmatch"
+            android:textColor="@color/youWinDark"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/youWinImage" />
+            app:layout_constraintTop_toBottomOf="@+id/youWinImage"
+            app:layout_constraintVertical_bias="1.0" />
 
         <ImageView
             android:id="@+id/youWinImage"
@@ -47,16 +68,18 @@
             android:layout_marginStart="@dimen/horizontal_margin"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="@dimen/horizontal_margin"
-            android:layout_marginBottom="@dimen/vertical_margin"
             android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@+id/nextMatchButton"
+            app:layout_constraintBottom_toTopOf="@+id/exitButtonWon"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.053"
             app:srcCompat="@drawable/you_win" />
 
         <TextView
             android:id="@+id/tvPuntuacion"
+            style="@style/TextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"

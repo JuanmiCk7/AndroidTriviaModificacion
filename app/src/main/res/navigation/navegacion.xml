@@ -37,10 +37,7 @@
             app:destination="@id/gameWonFragment"
             app:popUpTo="@id/titleFragment" />
         <argument
-            android:name="numPreguntas"
-            app:argType="integer" />
-        <argument
-            android:name="numAciertos"
+            android:name="selectedMode"
             app:argType="integer" />
     </fragment>
     <fragment
@@ -58,6 +55,12 @@
         <argument
             android:name="numPreguntas"
             app:argType="integer" />
+        <argument
+            android:name="selectedMode"
+            app:argType="integer" />
+        <argument
+            android:name="score"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/gameWonFragment"
@@ -74,6 +77,11 @@
         <argument
             android:name="numPreguntas"
             app:argType="integer" />
+        <argument
+            android:name="selectedMode"
+            app:argType="integer" />
+        <argument android:name="score"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -87,7 +95,8 @@
     <fragment
         android:id="@+id/rulesFragment"
         android:name="com.example.android.navigation.RulesFragment"
-        android:label="RulesFragment" >
+        android:label="RulesFragment"
+        tools:layout="@layout/fragment_rules">
         <action
             android:id="@+id/action_rulesFragment_to_titleFragment"
             app:destination="@id/titleFragment" />

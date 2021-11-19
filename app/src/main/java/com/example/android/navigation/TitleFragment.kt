@@ -7,6 +7,7 @@ import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
@@ -15,8 +16,6 @@ import androidx.navigation.ui.NavigationUI
 import com.example.android.navigation.databinding.FragmentTitleBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-
-var selectedMode : Int = 0
 
 /**
  * A simple [Fragment] subclass.
@@ -36,14 +35,13 @@ class TitleFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
+
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater,
             R.layout.fragment_title,container,false)
 
 
 
-
-
-        //Botón de Play que lleva al fragmento GameFragment.
+        //Botón de Rules que lleva al fragmento RulesFragment.
         binding.rulesButton.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_titleFragment_to_rulesFragment)
         }
@@ -53,23 +51,21 @@ class TitleFragment : Fragment() {
             view.findNavController().navigate(R.id.action_titleFragment_to_aboutFragment)
         }
 
-        //Botón de About que lleva al fragmento AboutFragment.
+        //Botón de Level que abre el diálogo de dificultad.
         binding.levelButton.setOnClickListener {
             onCreateDialog(savedInstanceState).show()
+
         }
 
-        if (selectedMode != -1) {
-            //Botón de Play que lleva al fragmento GameFragment.
-            Log.d("1","El item seleccionado es: $selectedMode")
-            binding.playButton.setOnClickListener { view : View ->
-                view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
+
+            binding.playButton.setOnClickListener { view: View ->
+                if (selectedMode == -1) {
+                    Snackbar.make(view, resources.getString(R.string.aviso_seleccion), Snackbar.LENGTH_SHORT)
+                        .show();
+                } else {
+                    view.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment(selectedMode))
+                }
             }
-        } else {
-            Log.d("1","El item seleccionado es: $selectedMode")
-            showSnackbar()
-        }
-
-        Log.d("1","El item seleccionado es: $selectedMode")
 
 
 
@@ -107,33 +103,30 @@ class TitleFragment : Fragment() {
             }
     }
 
-    val singleItems = arrayOf("Easy", "Medium", "Hard")
-    val checkedItem = 0
+    private var selectedMode: Int = -1
+    private val singleItems by lazy { arrayOf(resources.getString(R.string.facil), resources.getString(R.string.medio), resources.getString(R.string.dificil)) }
+    private val checkedItem = 4
 
     private fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         return activity?.let {
-            val builder = AlertDialog.Builder(it)
-            builder.setTitle("Select a level:")
+            val builder = androidx.appcompat.app.AlertDialog.Builder(it)
+            builder.setTitle(resources.getString(R.string.title_dialog))
                 .setSingleChoiceItems(singleItems,checkedItem,
                     DialogInterface.OnClickListener { dialog, which ->
-                        selectedMode = which
-
-                        Log.d("Aquiiiiii", "The selected option is $selectedMode")
+                        setSelectedMode(which)
                     })
-                .setPositiveButton("Accept", DialogInterface.OnClickListener { dialog, id ->
-                    Log.d("Aquiiiiii", "The selected option is $selectedMode")
+                .setPositiveButton(resources.getString(R.string.aceptar), DialogInterface.OnClickListener { dialog, id ->
+
                 })
-                .setNegativeButton("Cancel", DialogInterface.OnClickListener { dialog, id ->
-                    selectedMode = -1
-                    Log.d("Aquiiiiii", "The selected option is $selectedMode")
+                .setNegativeButton(resources.getString(R.string.cancelar), DialogInterface.OnClickListener { dialog, id ->
+                    setSelectedMode(-1)
                 })
             builder.create()
         } ?: throw IllegalStateException("Activity cannot be null")
     }
 
-    private fun showSnackbar() {
-
-
+    private fun setSelectedMode(selectedMode: Int) {
+        this.selectedMode = selectedMode
     }
 
 

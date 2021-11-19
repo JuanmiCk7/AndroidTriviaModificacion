@@ -15,25 +15,191 @@
   -->
 
 <resources>
-    <string name="app_name">Android Trivia</string>
+    <string name="app_name" translatable="false">Android Trivia</string>
     <string name="game_over">Game Over</string>
     <string name="try_again">Try Again?</string>
     <string name="position">Position</string>
     <string name="select_an_avatar">Select an Avatar</string>
-    <string name="android_trivia">Android Trivia</string>
-    <string name="about_text">Android Trivia will help remind you of important concepts you have learned and will learn in Android development.\n\nConsider modifying the questions and graphics to make this game your own!</string>
-    <string name="rules_text">Select the answer from the options given. Each time you get an answer correct, you advance to the next question.\n\nIf you get the answer wrong, your game ends! You can return to the title screen using up or back from within the game screen, and this will also end your game.</string>
+    <string name="android_trivia" translatable="false">Android Trivia</string>
+    <string name="about_text">Android Trivia will help remind you of important concepts you have learned and will learn in Android development.  Consider modifying the questions and graphics to make this game your own!</string>
+    <string name="rules_text">Select the answer from the options given. Each time you get an answer correct, you advance to the next question.  If you get the answer wrong, your game ends! You can return to the title screen using up or back from within the game screen, and this will also end your game.</string>
     <string name="rules">Rules</string>
     <string name="about">About</string>
     <string name="trivia_hint">Trivia Hint</string>
-    <string name="title_android_trivia_question">Android Trivia (%1$d/%2$d)</string>
     <string name="title_about_trivia">About Trivia</string>
     <string name="title_trivia_rules">Trivia Rules</string>
-    <string name="share_success_text">I mastered #UdacityAndroidTrivia with %1$d/%2$d correct questions!</string>
+    <string name="share_success_text">I mastered #UdacityAndroidTrivia with %1$d/%2$d correct questions! I got %3$d droids in the game!</string>
+    <string name="share_lose_text">I lose the game with %1$d/%2$d correct questions! I got %3$d droids in the game!</string>
     <string name="submit_button">Submit</string>
     <string name="congratulations">Congratulations!</string>
     <string name="share">Share</string>
     <string name="sharing_not_available">Sharing Not Available</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="levelEasy">Level: Easy</string>
+    <string name="levelMedium">Level: Medium</string>
+    <string name="levelHard">Level: Hard</string>
+    <string name="question1">What is Android Jetpack?</string>
+    <string name="question2">What is the base class for layouts?</string>
+    <string name="question3">What layout do you use for complex screens?</string>
+    <string name="question4">What do you use to push structured data into a layout?</string>
+    <string name="question5">What method do you use to inflate layouts in fragments?</string>
+    <string name="question6">What\'s the build system for Android?</string>
+    <string name="question7">Which class do you use to create a vector drawable?</string>
+    <string name="question8">Which one of these is an Android navigation component?</string>
+    <string name="question9">Which XML element lets you register an activity with the launcher activity?</string>
+    <string name="question10">What do you use to mark a layout for data binding?</string>
+    <string name="answer1">All of these</string>
+    <string name="answer2">Tools</string>
+    <string name="answer3">Documentation</string>
+    <string name="answer4">Libraries</string>
+    <string name="answer5" translatable="false">ViewGroup</string>
+    <string name="answer6" translatable="false">ViewSet</string>
+    <string name="answer7" translatable="false">ViewCollection</string>
+    <string name="answer8" translatable="false">ViewRoot</string>
+    <string name="answer9" translatable="false">ConstraintLayout</string>
+    <string name="answer10" translatable="false">GridLayout</string>
+    <string name="answer11" translatable="false">LinearLayout</string>
+    <string name="answer12" translatable="false">FrameLayout</string>
+    <string name="answer13" translatable="false">Data binding</string>
+    <string name="answer14" translatable="false">Data pushing</string>
+    <string name="answer15" translatable="false">Set text</string>
+    <string name="answer16" translatable="false">An OnClick method</string>
+    <string name="answer17" translatable="false">onCreateView()</string>
+    <string name="answer18" translatable="false">onActivityCreated()</string>
+    <string name="answer19" translatable="false">onCreateLayout()</string>
+    <string name="answer20" translatable="false">onInflateLayout()</string>
+    <string name="answer21" translatable="false">Gradle</string>
+    <string name="answer22" translatable="false">Graddle</string>
+    <string name="answer23" translatable="false">Grodle</string>
+    <string name="answer24" translatable="false">Groyle</string>
+    <string name="answer25" translatable="false">VectorDrawable</string>
+    <string name="answer26" translatable="false">AndroidVectorDrawable</string>
+    <string name="answer27" translatable="false">DrawableVector</string>
+    <string name="answer28" translatable="false">AndroidVector</string>
+    <string name="answer29" translatable="false">NavController</string>
+    <string name="answer30" translatable="false">NavCentral</string>
+    <string name="answer31" translatable="false">NavMaster</string>
+    <string name="answer32" translatable="false">NavSwitcher</string>
+    <string name="answer33" translatable="false">intent-filter</string>
+    <string name="answer34" translatable="false">app-registry</string>
+    <string name="answer35" translatable="false">launcher-registry</string>
+    <string name="answer36" translatable="false">app-launcher</string>
+    <string name="answer37" translatable="false">&lt;layout&gt;</string>
+    <string name="answer38" translatable="false">&lt;binding&gt;</string>
+    <string name="answer39" translatable="false">&lt;data-binding&gt;</string>
+    <string name="answer40" translatable="false">&lt;dbinding&gt;</string>
+
+
+    <string-array name="questions">
+        <item>@string/question1</item>
+        <item>@string/question2</item>
+        <item>@string/question3</item>
+        <item>@string/question4</item>
+        <item>@string/question5</item>
+        <item>@string/question6</item>
+        <item>@string/question7</item>
+        <item>@string/question8</item>
+        <item>@string/question9</item>
+        <item>@string/question10</item>
+    </string-array>
+    <string-array name="answers_to_question1">
+        <item>@string/answer1</item>
+        <item>@string/answer2</item>
+        <item>@string/answer3</item>
+        <item>@string/answer4</item>
+    </string-array>
+    <string-array name="answers_to_question2">
+        <item>@string/answer5</item>
+        <item>@string/answer6</item>
+        <item>@string/answer7</item>
+        <item>@string/answer8</item>
+    </string-array>
+    <string-array name="answers_to_question3">
+        <item>@string/answer9</item>
+        <item>@string/answer10</item>
+        <item>@string/answer11</item>
+        <item>@string/answer12</item>
+    </string-array>
+    <string-array name="answers_to_question4">
+        <item>@string/answer13</item>
+        <item>@string/answer14</item>
+        <item>@string/answer15</item>
+        <item>@string/answer16</item>
+    </string-array>
+    <string-array name="answers_to_question5">
+        <item>@string/answer17</item>
+        <item>@string/answer18</item>
+        <item>@string/answer19</item>
+        <item>@string/answer20</item>
+    </string-array>
+    <string-array name="answers_to_question6">
+        <item>@string/answer21</item>
+        <item>@string/answer22</item>
+        <item>@string/answer23</item>
+        <item>@string/answer24</item>
+    </string-array>
+    <string-array name="answers_to_question7">
+        <item>@string/answer25</item>
+        <item>@string/answer26</item>
+        <item>@string/answer27</item>
+        <item>@string/answer28</item>
+    </string-array>
+    <string-array name="answers_to_question8">
+        <item>@string/answer29</item>
+        <item>@string/answer30</item>
+        <item>@string/answer31</item>
+        <item>@string/answer32</item>
+    </string-array>
+    <string-array name="answers_to_question9">
+        <item>@string/answer33</item>
+        <item>@string/answer34</item>
+        <item>@string/answer35</item>
+        <item>@string/answer36</item>
+    </string-array>
+    <string-array name="answers_to_question10">
+        <item>@string/answer37</item>
+        <item>@string/answer38</item>
+        <item>@string/answer39</item>
+        <item>@string/answer40</item>
+    </string-array>
+    <string name="mensaje_exito">Congratulations, you got the answer: %1$d of %2$d questions. You got %3$d droids.</string>
+    <string name="aviso_seleccion">You must to select an option</string>
+    <string name="facil">Easy</string>
+    <string name="medio">Medium</string>
+    <string name="dificil">Hard</string>
+    <string name="aceptar">Accept</string>
+    <string name="cancelar">Cancel</string>
+    <string name="title_dialog">Select a level: </string>
+    <string name="title_android_trivia_question">"Android Trivia (%1$d/%2$d). Score: %3$d. "</string>
+    <string name="back">Back</string>
+    <string name="nextmatch">Next Match</string>
+    <string name="exit">Exit</string>
+    <string name="hint">Hint</string>
+    <string name="mensaje_derrota">Lo siento, solo has acertado: %1$d de %2$d preguntas.</string>
+    <string name="play">Play</string>
+
+    <string name="level">Level</string>
+    <string name="hint1">Pis1</string>
+    <string name="hint2">Pis2</string>
+    <string name="hint3">Pis3</string>
+    <string name="hint4">Pis4</string>
+    <string name="hint5">Pis5</string>
+    <string name="hint6">Pis6</string>
+    <string name="hint7">Pis7</string>
+    <string name="hint8">Pis8</string>
+    <string name="hint9">Pis9</string>
+    <string name="hint10">Pis10</string>
+
+    <string-array name="hints">
+        <item>@string/hint1</item>
+        <item>@string/hint2</item>
+        <item>@string/hint3</item>
+        <item>@string/hint4</item>
+        <item>@string/hint5</item>
+        <item>@string/hint6</item>
+        <item>@string/hint7</item>
+        <item>@string/hint8</item>
+        <item>@string/hint9</item>
+        <item>@string/hint10</item>
+    </string-array>
+
 </resources>

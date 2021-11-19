@@ -19,6 +19,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.navigation.RulesFragment">
 
+    <data>
+        <variable
+            name="game2"
+            type="com.example.android.navigation.RulesFragment" />
+    </data>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -43,6 +49,7 @@
 
             <TextView
                 android:id="@+id/rulesText"
+                style="@style/TextStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/horizontal_margin"
@@ -56,9 +63,10 @@
 
             <Button
                 android:id="@+id/backButton"
-                android:layout_width="100dp"
-                android:layout_height="58dp"
-                android:text="BACK"
+                style="@style/ButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/back"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
